@@ -10,7 +10,9 @@ public class HelloWorldServlet extends HttpServlet {
     //USER GOES TO LOCALHOST 8080/hello and sees hello world
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        String name = req.getParameter("name");
+
         PrintWriter out = res.getWriter();
-        out.println("<h1> Some Text in browser <h1><a href='/login'>Login</a>");
+        out.printf("<h1> Hello! %s <h1>",name);
      }
 }
