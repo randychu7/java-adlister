@@ -5,12 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/hello")
-public class HelloWorldServlet extends HttpServlet {
-    //USER GOES TO LOCALHOST 8080/hello and sees hello world
+@WebServlet("/login")
+public class login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         PrintWriter out = res.getWriter();
-        out.println("<h1> Some Text in browser <h1><a href='/login'>Login</a>");
-     }
+        out.println("<h1> LOGIN <h1>");
+    }
 }
