@@ -10,8 +10,16 @@
 <head>
     <title>Title</title>
 </head>
+<style>
+    li{
+        list-style: none;
+    }
+    nav{
+        display: flex;
+    }
+</style>
 <body>
-<%@ include file="navbar.jsp"%>
+<%@ include file="partials/navbar.jsp"%>
 
 <h1>Welcome, ${username}!</h1>
 <p>Your password is: ${password}</p>

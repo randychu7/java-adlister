@@ -9,23 +9,35 @@
     color: red;
   }
 </style>
+
 <body>
-<form method="POST" action="/login.jsp" action="/profile.jsp">
-  <%@ include file="navbar.jsp"%>
+<form method="POST" action="/login.jsp">
+  <%@ include file="partials/navbar.jsp"%>
   <h1>Please Login</h1>
   <%
+//    String username = request.getParameter("username");
+//    String password = request.getParameter("password");
+    String method = request.getMethod();
+
+    if (method.equals("POST")){
     String username = request.getParameter("username");
     String password = request.getParameter("password");
-
-    if (username != null && password != null && username.equals("admin") && password.equals("password")) {
-      // Set the username and password as attributes in the request object
-      request.setAttribute("username", username);
-      request.setAttribute("password", password);
-      // Redirect to the profile page
+      if(username.equals("admin") && password.equals("password")){
       response.sendRedirect(String.format("/profile.jsp?username=%s&&password=%s",username,password));
-    } else if (username != null || password != null){
-      out.println("<h2 style=\"color:red\">Wrong Username or Password. Please try again.</h2>");
-    }
+    }else {
+        out.println("<h2 style=\"color:red\">Wrong Username or Password. Please try again.</h2>");
+      }
+  }
+
+//    if (username != null && password != null && username.equals("admin") && password.equals("password")) {
+//      // Set the username and password as attributes in the request object
+//      request.setAttribute("username", username);
+//      request.setAttribute("password", password);
+//      // Redirect to the profile page
+//      response.sendRedirect(String.format("/profile.jsp?username=%s&&password=%s",username,password));
+//    } else if (username != null || password != null){
+//      out.println("<h2 style=\"color:red\">Wrong Username or Password. Please try again.</h2>");
+//    }
   %>
   <h1>Username</h1>
   <input type="text" name="username">
