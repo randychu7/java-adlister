@@ -10,6 +10,9 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
+        <form method="post" action="/ads">
+
+        </form>
     </div>
 </body>
 </html>

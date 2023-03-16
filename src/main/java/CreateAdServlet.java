@@ -12,13 +12,13 @@ public class CreateAdServlet extends HttpServlet {
             .forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Ad ad = new Ad(
-            1, // for now we'll hardcode the user id
-            request.getParameter("title"),
-            request.getParameter("description")
-        );
-        DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/ads");
+        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+            String title = req.getParameter("title");
+            String description = req.getParameter("description");
+            Ad ad = new Ad(1, title, description); // hardcoded user id for now
+            DaoFactory.getAdsDao().insert(ad);
+            // Redirect the user back to the ads index page
+            resp.sendRedirect("/ads");
+        }
     }
-}
+//}

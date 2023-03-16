@@ -18,6 +18,18 @@
             <p>${ad.description}</p>
         </div>
     </c:forEach>
+
+    <form method="post" action="/ads/create">
+        <h2>Add an Ad</h2>
+
+        <label>Ad Title</label>
+        <input type="text" name="title">
+
+        <label>Ad Description</label>
+        <input type="text" name="description">
+        <button>Submit</button>
+
+    </form>
 </div>
 
 </body>
